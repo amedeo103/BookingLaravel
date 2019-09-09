@@ -1,17 +1,17 @@
 ## How to run
 
-1. Go to file location after downloading and unzipping with cmd(Wnidows) and run command: composer update
-2. After succesfully commited command run: composer install
+1. Go to file location after downloading and unzipping with cmd(Wnidows) and run command: composer install
+2. After succesfully commited command run: composer update
 
-3. Next you should make database and connect to it with your connection data. Code to make database is under folder dbMake. Under file .env you should have data for connecting to database:</br>
+3. Next you should make database and connect to it with your connection data. Code to make database is in readme file under instructions named DATABASE. In file .env you should have data for connecting to database:</br>
 DB_CONNECTION=mysql</br>
 DB_HOST=127.0.0.1</br>
 DB_PORT=3306</br>
 DB_DATABASE=homestead</br>
 DB_USERNAME=homestead</br>
 DB_PASSWORD=secret</br>
-You have to edit this file with your connection to daatabase. Usualy you should to change:</br> 
-DB_USERNAME= it should be the name of your created database. </br>
+You have to edit this file with your connection to database. Usualy you should change:</br> 
+DB_USERNAME= it should be the name of your created database.(in this example bookings) </br>
 DB_USERNAME= username to connect to database(default root).</br>
 DB_PASSWORD= pasword to connect to database(default there is no password so it's left blank for my setup).
 
@@ -19,6 +19,32 @@ DB_PASSWORD= pasword to connect to database(default there is no password so it's
 If app doesn't seem to be working, it's probably because .env file has something written after .env like(.example). If this happens to you you should delete .example and leave just .env.(.env.example to .env)
 After that change, you should run this command in terminal.</br>
 php artisan key:generate
+
+## DATABASE
+
+This next sql code will create database with tables for needed for application to run. Copy this code into MySql excecute it and add some units into database.</br>
+CREATE DATABASE bookings;</br>
+use bookings</br>
+CREATE TABLE units (</br>
+id int(11) NOT NULL AUTO_INCREMENT,</br>
+name char(50) NOT NULL,</br>
+max_persons int(11) NOT NULL,</br>
+price_per_night float NOT NULL,</br>
+PRIMARY KEY (id)</br>
+)</br>
+CREATE TABLE reservations (</br>
+id int(11) NOT NULL AUTO_INCREMENT,</br>
+unit_id int(11) NOT NULL,</br>
+date_from date NOT NULL,</br>
+date_to date NOT NULL,</br>
+total_price float NOT NULL,</br>
+first_name char(50) NOT NULL,</br>
+last_name char(50) NOT NULL,</br>
+email char(60) NOT NULL,</br>
+PRIMARY KEY (id),</br>
+KEY unit_id (unit_id),</br>
+CONSTRAINT reservations_ibfk_1 FOREIGN KEY (unit_id) REFERENCES units (id)</br>
+)</br>
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
