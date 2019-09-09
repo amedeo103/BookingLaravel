@@ -1,3 +1,19 @@
+## How to run
+
+1. Go to file location after downloading and unzipping with cmd(Wnidows) and run command: composer update
+2. After succesfully commited command run: composer install
+
+3. Next you should make database and connect to it with your connection data. Code to make database is under folder dbMake. Under file .env you should have data for connecting to database:</br>
+DB_CONNECTION=mysql</br>
+DB_HOST=127.0.0.1</br>
+DB_PORT=3306</br>
+DB_DATABASE=homestead</br>
+DB_USERNAME=homestead</br>
+DB_PASSWORD=secret</br>
+You have to edit this file with your connection to daatabase. Usualy you should to change:</br> 
+DB_USERNAME= it should be the name of your created database. </br>
+DB_USERNAME= username to connect to database(default root).</br>
+DB_PASSWORD= pasword to connect to database(default there is no password so it's left blank for my setup).
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
