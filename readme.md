@@ -14,6 +14,11 @@ You have to edit this file with your connection to daatabase. Usualy you should 
 DB_USERNAME= it should be the name of your created database. </br>
 DB_USERNAME= username to connect to database(default root).</br>
 DB_PASSWORD= pasword to connect to database(default there is no password so it's left blank for my setup).
+
+## IMPORTANT
+If app doesn't seem to be working, it's probably because .env file has something written after .env like(.example). If this happens to you you should delete .example and leave just .env.(.env.example to .env)
+After that change, you should run this command in terminal.</br>
+php artisan key:generate
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
